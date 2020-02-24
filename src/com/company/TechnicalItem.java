@@ -22,4 +22,10 @@ public class TechnicalItem extends GenericItem {
         super(id, name, price, category, analogue);
         this.warrantyTime = warrantyTime;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", warrantyTime=" + warrantyTime;
+    }
 }

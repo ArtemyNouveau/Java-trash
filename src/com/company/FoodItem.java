@@ -29,4 +29,10 @@ public class FoodItem extends GenericItem {
         this.dateOfIncome = dateOfIncome;
         this.expires = expires;
     }
+
+    @Override
+    public String toString() {
+        return ", dateOfIncome=" + dateOfIncome +
+                ", expires=" + expires;
+    }
 }

@@ -1,10 +1,5 @@
 package com.company;
 
-import java.io.IOException;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -73,13 +68,12 @@ public class GenericItem {
 
     @Override
     public String toString() {
-        return "GenericItem{" +
+        return "Item№: " +
                 "ID=" + ID +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", category=" + category +
-                ", analogues=" + this.getAnalogues() +
-                '}';
+                (this.getAnalogues().length() != 0 ? ", analogues=" + this.getAnalogues() : "");
     }
 
     @Override
@@ -87,6 +81,9 @@ public class GenericItem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GenericItem that = (GenericItem) o;
+        /*
+        lets imagine, that we have some controller, that manages ID
+        */
         return ID == that.ID;
     }
 
