@@ -4,32 +4,33 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class GenericItem {
+    static int currentID = 0;
     private Category category;
     private int ID;
     private String name;
     private float price;
     private ArrayList<GenericItem> analogues;
 
-    public GenericItem(int id, String name, float price) {
-        this.ID = id;
+    public GenericItem(String name, float price) {
+        this.ID = GenericItem.currentID++;
         this.name = name;
         this.price = price;
         this.analogues = new ArrayList<GenericItem>();
         this.category = Category.GENERAL;
     }
 
-    public GenericItem(int id, String name, float price, Category category) {
-        this(id, name, price);
+    public GenericItem(String name, float price, Category category) {
+        this(name, price);
         this.category = category;
     }
 
-    public GenericItem(int id, String name, float price, GenericItem analogue) {
-        this(id, name, price);
+    public GenericItem(String name, float price, GenericItem analogue) {
+        this(name, price);
         this.analogues.add(analogue);
     }
 
-    public GenericItem(int id, String name, float price, Category category, GenericItem analogue) {
-        this(id, name, price, category);
+    public GenericItem(String name, float price, Category category, GenericItem analogue) {
+        this(name, price, category);
         this.analogues.add(analogue);
     }
 
@@ -92,7 +93,7 @@ public class GenericItem {
         try {
             clone = (GenericItem) super.clone();
         } catch (CloneNotSupportedException e) {
-            clone = new GenericItem(ID, name, price, category);
+            clone = new GenericItem(name, price, category);
         }
 
         if (withAnalogues)

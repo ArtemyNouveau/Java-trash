@@ -6,33 +6,40 @@ public class FoodItem extends GenericItem {
     private Date dateOfIncome;
     private short expires;
 
-    public FoodItem(int id, String name, float price, Date dateOfIncome, short expires) {
-        super(id, name, price);
+    public FoodItem(String name, float price, short expires) {
+        super(name, price);
+        this.dateOfIncome = new Date();
+        this.expires = expires;
+    }
+
+    public FoodItem(String name, float price, Date dateOfIncome, short expires) {
+        super(name, price);
         this.dateOfIncome = dateOfIncome;
         this.expires = expires;
     }
 
-    public FoodItem(int id, String name, float price, Date dateOfIncome, short expires, Category category) {
-        super(id, name, price, category);
+    public FoodItem(String name, float price, Date dateOfIncome, short expires, Category category) {
+        super(name, price, category);
         this.dateOfIncome = dateOfIncome;
         this.expires = expires;
     }
 
-    public FoodItem(int id, String name, float price, Date dateOfIncome, short expires, GenericItem analogue) {
-        super(id, name, price, analogue);
+    public FoodItem(String name, float price, Date dateOfIncome, short expires, GenericItem analogue) {
+        super(name, price, analogue);
         this.dateOfIncome = dateOfIncome;
         this.expires = expires;
     }
 
-    public FoodItem(int id, String name, float price, Date dateOfIncome, short expires, Category category, GenericItem analogue) {
-        super(id, name, price, category, analogue);
+    public FoodItem(String name, float price, Date dateOfIncome, short expires, Category category, GenericItem analogue) {
+        super(name, price, category, analogue);
         this.dateOfIncome = dateOfIncome;
         this.expires = expires;
     }
 
     @Override
     public String toString() {
-        return ", dateOfIncome=" + dateOfIncome +
+        return super.toString() +
+                ", dateOfIncome=" + dateOfIncome +
                 ", expires=" + expires;
     }
 }
